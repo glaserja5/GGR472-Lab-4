@@ -37,6 +37,7 @@ fetch('https://raw.githubusercontent.com/glaserja5/GGR472-Lab-4/main/data/pedcyc
 fetch('https://raw.githubusercontent.com/glaserja5/GGR472-Lab-4/main/data/toronto_crs84.geojson')
     .then(response => response.json()
     .then(response => {
+        console.log("neighborhoods", response)
         neighborhoods = response; // Store geojson as a variable
     }))
     .catch(error => console.error('Error fetching collision data:', error));
