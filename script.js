@@ -34,10 +34,9 @@ fetch('https://raw.githubusercontent.com/glaserja5/GGR472-Lab-4/main/data/pedcyc
     }))
     .catch(error => console.error('Error fetching collision data:', error));
 
-fetch('https://raw.githubusercontent.com/glaserja5/GGR472-Lab-4/main/data/toronto_crs84.geojson')
+fetch('https://raw.githubusercontent.com/glaserja5/GGR472-Lab-4/refs/heads/main/data/toronto_crs84.geojson')
     .then(response => response.json()
     .then(response => {
-        console.log("neighborhoods", response)
         neighborhoods = response; // Store geojson as a variable
     }))
     .catch(error => console.error('Error fetching collision data:', error));
@@ -65,17 +64,22 @@ map.on('load', () => {
 
     let collected = turf.collect(hexgrid, collisionData, '_id', 'values');
     console.log("Collected Data:", collected);
+    let torArr = neighborhoods.features.map(i => turf.polygon(i.geometry.coordinates));
 
-    let toronto;
-    neighborhoods.features.forEach((i) => {
-        if (toronto){
-            toronto = turf.union(toronto, turf.polygon(i.geometry.coordinates))
-        } else {
-            toronto = turf.polygon(i.geometry.coordinates)
+    // Combine all polygons into a single MultiPolygon
+    const combinedFeatureCollection = turf.combine(turf.featureCollection(torArr)); // replace with coordinates of toronto
+
+    // Extract the MultiPolygon geometry from the FeatureCollection
+    const toronto = combinedFeatureCollection.features[0];
+    let cleanHexgrid = [];
+
+    console.log("TORONTO",toronto)
+
+    hexgrid.features.forEach((i) => {
+        if (turf.booleanWithin(i, toronto) || turf.booleanOverlap(i, toronto)) {
+            cleanHexgrid.push(i);
         }
-    })
-
-    console.log(toronto)
+    });
 
     let maxCollisions = 0;
 
@@ -93,7 +97,7 @@ map.on('load', () => {
     // Add hexgrid to map
     map.addSource('hexgrid', {
         type: 'geojson',
-        data: hexgrid
+        data: turf.featureCollection(cleanHexgrid)
     });
 
     map.addLayer({
