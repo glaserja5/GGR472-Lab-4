@@ -6,3 +6,30 @@
     right: 0;
     width: 100%;
 }
+
+.legend {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.legend h4 {
+    margin: 0 0 5px;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+}
+
+.legend span {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    display: inline-block;
+}
