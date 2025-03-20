@@ -1,23 +1,19 @@
-# GGR472 Lab 4: Incorporating GIS analysis into web maps using Turf.js
- 
-This repository contains the starter code required to complete Lab 4. The lab is designed to help you learn how to perform spatial analysis and visualize outputs using the [Turf.js](https://turfjs.org/) and [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/) libraries.
+# GGR472 Lab 4: Collision Data Visualization with Turf.js & Mapbox GL JS
 
+This repository contains the files necessary to create an interactive web map that visualizes pedestrian and cyclist collision data in Toronto using [Turf.js](https://turfjs.org/) for spatial analysis and [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/) for mapping.
 
 ## Repository Contents
-- `data/pedcyc_collision_06-21.geojson`: Data file containing point locations of road collisions involving pedestrian and cyclists between 2006 and 2021 in Toronto 
-- `instructions/GGR472_Lab4`: Instructions document explaining steps required to complete the lab
-- `index.html`: HTML file to render the map
-- `style.css`: CSS file for positioning the map interface
-- `script.js`: JavaScript file template to be updated to include code that creates and visualizes and hexgrid map based on the collision data
-   
 
-## Getting started
+- `data/pedcyc_collision_06-21.geojson`: GeoJSON file containing point locations of pedestrian and cyclist collisions in Toronto (2006-2021).
+- `index.html`: Main HTML file that renders the web map.
+- `style.css`: CSS file for styling the map interface and UI elements.
+- `script.js`: JavaScript file that initializes the map, processes the data, generates a hexgrid, and adds interactive elements.
+- `README.md`: Documentation file explaining how to use and modify the map.
 
-To get started with the lab:
+## Features
 
-1. Clone this repository to your local machine
-2. Update the public access token and basemap in `script.js`
-3. Open `index.html` in a web browser to view the map
-4. Create a new online repository containing your own files
-2. Work through the `instructions/GGR472_Lab4` instructions document to incrementally develop the `script.js` file
+- **Hexagonal Binning**: Uses Turf.js to aggregate collision data into a hexagonal grid.
+- **Dynamic Styling**: Colors hexagons based on collision density.
+- **Interactive Popups**: Displays the number of collisions within each hexagon on hover.
+- **Hover Effects**: Highlights hexagons when hovered.
 

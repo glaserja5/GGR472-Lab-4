@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GGR472 Lab 4</title>
-    <!-- mapbox API -->
+    <!-- Mapbox API -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css' rel='stylesheet' />
     <!-- CSS -->
@@ -16,28 +16,29 @@
 </head>
 
 <body>
-
+    <!-- HEADER SECTION -->
+    <div class="header">
+        <h1>Toronto Pedestrian & Cyclist Collision Map</h1>
+        <p class="subtitle">Methodology: This map visualizes collision density using 0.5km hexagons. Collision data from 2006-2021 is aggregated by hex cell, with color indicating collision frequency. Hovering over a hex shows the predominant neighborhood (most common among collision points) and total collision count.</p>
+    </div>
+    
     <!-- MAP CONTAINER -->
     <div id='map' class='map'></div>
 
-
-    <button id="bboxbutton">Create Bounding Box</button>
-    <button id="hexgridbutton">Generate Hexgrid</button>
-    <button id="aggregatebutton">Aggregate Collisions</button>
+    <!-- Legend for collision density -->
+    <div id="legend" class="legend">
+        <h4>Collision Density</h4>
+        <div><span style="background:#fef0d9"></span> 0 - 5</div>
+        <div><span style="background:#fdcc8a"></span> 5 - 10</div>
+        <div><span style="background:#fc8d59"></span> 10 - 20</div>
+        <div><span style="background:#e34a33"></span> 20 - 50</div>
+        <div><span style="background:#b30000"></span> 50+</div>
+<!-- Explains what missing hexagons represent -->
+        <p class="legend-note">
+            Areas with no hexagons indicate no crashes in the zone.
+        </p>
+    </div>
 
     <script src="script.js"></script>
-
 </body>
-
-<div id="legend" class="legend">
-    <h4>Collision Density</h4>
-    <div><span style="background:#fef0d9"></span> 0 - 5</div>
-    <div><span style="background:#fdcc8a"></span> 5 - 10</div>
-    <div><span style="background:#fc8d59"></span> 10 - 20</div>
-    <div><span style="background:#e34a33"></span> 20 - 50</div>
-    <div><span style="background:#b30000"></span> 50+</div>
-</div>
-
-
-
 </html>
