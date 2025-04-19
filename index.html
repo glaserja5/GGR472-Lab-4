@@ -11,8 +11,8 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css' rel='stylesheet' />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Turf.js -->
-    <script src='https://unpkg.com/@turf/turf@7.2.0/turf.min.js'></script>
+    <!-- Turf.js - Make sure this is included! -->
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 </head>
 
 <body>
@@ -33,12 +33,13 @@
         <div><span style="background:#fc8d59"></span> 10 - 20</div>
         <div><span style="background:#e34a33"></span> 20 - 50</div>
         <div><span style="background:#b30000"></span> 50+</div>
-<!-- Explains what missing hexagons represent -->
+        <!-- Explains what missing hexagons represent -->
         <p class="legend-note">
             Areas with no hexagons indicate no crashes in the zone.
         </p>
     </div>
 
+    <!-- Load the script just once, at the end of body -->
     <script src="script.js"></script>
 </body>
 </html>

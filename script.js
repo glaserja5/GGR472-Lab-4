@@ -1,5 +1,5 @@
 // access mapbox API and style
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ2xhc2VyamEiLCJhIjoiY201b2RybzhxMGt5ZDJrcTFoYWhuZGg1NSJ9.26_93f6771_YWY9BhIhnlw';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZ2xhc2VyamEiLCJhIjoiY205bnI4aWRtMDFnMDJxb25tdXd4bGV5ayJ9.6EInEzp25PqwQ2PZsvcEuQ';
 
 const map = new mapboxgl.Map({
     container: "map",
